@@ -11,13 +11,10 @@ class Square extends Line implements EquationInterface
         }
         $D = $this->searchD($a, $b, $c);
         if($D > 0){
-            $X = ((-$b)+sqrt($D))/(2*$a);
-            $X2 = ((-$b)-sqrt($D))/(2*$a);
-            return array($this->$X, $this->$X2);
+            return $this->x = [(-$b - sqrt($D)) / (2 * $a), (-$b + sqrt($D)) / (2 * $a)];
         }
         if($D==0){
-            $X = -($b / (2 * $a));
-            return array($this->$X);
+            return $this->x = [(-$b - sqrt($D) / (2 * $a))];
         }
         if($D<0)
         throw new AlexeevException('Корней нет!');
